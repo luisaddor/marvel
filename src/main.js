@@ -5,7 +5,7 @@ import router from './router';
 import store from './store';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css';
+import './assets/scss/main.scss';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Make BootstrapVue available throughout your project

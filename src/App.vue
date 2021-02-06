@@ -3,9 +3,11 @@
     <b-navbar
       toggleable="lg"
       type="dark"
-      variant="info"
+      variant="dark"
     >
-      <b-navbar-brand to="/">NavBar</b-navbar-brand>
+      <b-navbar-brand to="/">
+        <img src="https://logodownload.org/wp-content/uploads/2017/05/marvel-logo-4.png" width="100" alt="marvel-logo" />
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
 
@@ -13,10 +15,6 @@
         <b-navbar-nav>
           <b-nav-item to="/">
             Home
-          </b-nav-item>
-
-          <b-nav-item to="/about">
-            About
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -27,24 +25,7 @@
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  body {
+    background-color: #444 !important;
   }
-}
 </style>

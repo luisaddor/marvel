@@ -11,29 +11,43 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     characters: null,
+    character: null,
   },
   getters: {
     GET_CHARACTERS(state) {
       return state.characters;
     },
+    GET_CHARACTER(state) {
+      return state.character;
+    },
   },
   mutations: {
     CHARACTERS(state, res) {
-      console.log('mutation');
       state.characters = res;
+    },
+    CHARACTER(state, res) {
+      state.character = res;
     },
   },
   actions: {
     UPDATE_CHARACTERS: ({ commit }, e) => {
-      console.log('action');
+      const urlCharacters = `${urlBaseMarvel}characters?apikey=${apiKey}&offset=10&limit=${e.limit}`;
 
-      const urlComics = `${urlBaseMarvel}characters?apikey=${apiKey}&limit=${e.limit}`;
+      axios.get(urlCharacters)
+        .then((characters) => {
+          commit('CHARACTERS', characters.data.data.results);
+        }, (error) => {
+          console.log(error);
+        });
+    },
+    UPDATE_CHARACTER: ({ commit }, e) => {
+      const urlCharacter = `${urlBaseMarvel}characters/${e.id}?apikey=${apiKey}`;
 
-      axios.get(urlComics)
-        .then((comics) => {
-          console.log(comics.data.data.results);
+      axios.get(urlCharacter)
+        .then((character) => {
+          console.log(character);
 
-          commit('CHARACTERS', comics.data.data.results);
+          commit('CHARACTER', ...character.data.data.results);
         }, (error) => {
           console.log(error);
         });
